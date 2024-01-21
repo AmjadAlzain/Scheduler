@@ -82,6 +82,7 @@ public class fragmentSchedulerHome extends Fragment {
         parseBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                schedulerApp.resetApp();
                 schedulerApp.readInput(getActivity());
                 schedulerApp.loadSchedulers();
                 responseTimeS = schedulerApp.getStackResTime();

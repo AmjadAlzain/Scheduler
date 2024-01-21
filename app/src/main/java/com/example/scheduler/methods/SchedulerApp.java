@@ -32,6 +32,22 @@ public class SchedulerApp {
         queueLLTasks = new String[22][6];
     }
 
+    public void resetApp(){
+        this.stackScheduler = new StackScheduler();
+        this.linkedListScheduler = new LinkedListScheduler();
+        this.queueScheduler = new QueueScheduler();
+        this.queueLLScheduler = new QueueSchedulerLL<>();
+        this.queueResTime = 0;
+        this.stackResTime = 0;
+        this.linkedListResTime = 0;
+        this.queueLLResTime = 0;
+        this.tasks = new Task[100];
+        stackTasks = new String[22][6];
+        queueTasks = new String[22][6];
+        linkedListTasks = new String[22][6];
+        queueLLTasks = new String[22][6];
+    }
+
     public void readInput(Context context) {
         tasks = parseTasks(context, "tasks.txt");
     }
