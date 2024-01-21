@@ -12,23 +12,17 @@ public class StackScheduler {
         taskStack.push(task);
     }
 
-    public void executeTasks(String[][] tasks) {
+    public void executeTasks() {
         long temp = 0, startTime, endTime;
-        int index = 0;
         while (!taskStack.isEmpty()) {
             startTime = System.nanoTime();
             Task task = taskStack.pop();
             if (task != null) {
                 task.execute();
-                tasks[index][0] = task.getName();
-                tasks[index][1] = task.getOutput();
-                tasks[index][2] = String.valueOf(task.getStackReponseTime());
             }
             endTime = System.nanoTime();
-            temp = (endTime - startTime);
-            tasks[index][3] = String.valueOf(temp);
+            temp = (endTime - startTime) / 1000000;
             setExecutionTime(getExecutionTime() + temp);
-            index++;
         }
     }
 
@@ -38,9 +32,5 @@ public class StackScheduler {
 
     public void setExecutionTime(long executionTime) {
         this.executionTime = executionTime;
-    }
-
-    public double getAvgExec() {
-        return (getExecutionTime()/22);
     }
 }

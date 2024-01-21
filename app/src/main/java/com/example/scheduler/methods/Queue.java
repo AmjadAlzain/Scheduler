@@ -1,81 +1,77 @@
 package com.example.scheduler.methods;
 
-public class Queue<E> {
-    private E[] queue;
-    private int capacity, headIndex, tail, size;
+public class Queue<T> {
+    private T[] arr;
+    private int maxSize, head, tail;
 
-
-    public Queue() {
-        capacity = 5;
-        queue = (E[]) new Object[capacity];
-        size = 0;
-        headIndex = 0;
-
-    }
-
-    @SuppressWarnings("unchecked")
-    public Queue(int capacity) {
-        this.capacity = capacity;
-        queue = (E[]) new Object[capacity];
-        size = 0;
-        headIndex = 0;
-    }
-
-    public void enqueue(E e) {
-        if (size == capacity) {
-            increaseCapacity();
-        }
-        int insertIndex = (headIndex + size) % capacity;
-        queue[insertIndex] = e;
-        size++;
-    }
-
-    public E dequeue() {
-        if (isEmpty()) {
-            throw new IllegalStateException("Queue is empty");
-        }
-        E item = queue[headIndex];
-        queue[headIndex] = null;
-        headIndex = (headIndex + 1) % capacity;
-        size--;
-        return item;
-    }
-
-    public E peek() {
-        if (isEmpty()) {
-            throw new IllegalStateException("Queue is empty");
-        }
-        return queue[headIndex];
+    public Queue(int maxSize) {
+        arr = (T[]) new Object[maxSize];
+        this.maxSize = maxSize;
+        this.head = 0;
+        this.tail = 0;
     }
 
     public boolean isEmpty() {
-        return size == 0;
+        return tail == 0;
     }
 
-    public int size() {
-        return size;
-    }
-
-    private void increaseCapacity() {
-        int newCapacity = 2 * capacity;
-        @SuppressWarnings("unchecked")
-        E[] newQueue = (E[]) new Object[newCapacity];
-        for (int i = 0; i < size; i++) {
-            newQueue[i] = queue[(headIndex + i) % capacity];
+    public T peek() {
+        if (!isEmpty()) {
+            return arr[head];
+        } else {
+            System.out.println("Queue is empty");
+            return null;
         }
-        queue = newQueue;
-        headIndex = 0;
-        capacity = newCapacity;
     }
 
-//    public void display() {
+    public void enqueue(T element) {
+        if (tail < maxSize) {
+            arr[tail] = element;
+            tail++;
+        } else {
+            System.out.println("Queue is full");
+        }
+    }
+
+//    public void dequeue() {
 //        if (!isEmpty()) {
-//            for (int i = head; i < tail; i++) {
-//                System.out.print(arr[i] + " ");
+//            for (int i = 0; i < tail - 1; i++) {
+//                arr[i] = arr[i + 1];
 //            }
-//            System.out.println();
-//        } else {
-//            System.out.println("Nothing to display");
+//            arr[tail - 1] = null;
+//            tail--;
 //        }
 //    }
+
+    public T dequeue() {
+        if (!isEmpty()) {
+            T dequeuedElement = arr[head];
+            for (int i = 0; i < tail - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+            arr[tail - 1] = null;
+            tail--;
+
+            // Update head if the queue is not empty
+            if (!isEmpty()) {
+                head++;
+            }
+
+            return dequeuedElement;
+        } else {
+            System.out.println("Queue is empty");
+            return null; // or throw an exception, depending on your design choice
+        }
+    }
+
+    public void display() {
+        if (!isEmpty()) {
+            for (int i = head; i < tail; i++) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
+        } else {
+            System.out.println("Nothing to display");
+        }
+    }
 }

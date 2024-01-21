@@ -3,7 +3,7 @@ package com.example.scheduler.methods;
 
 public class QueueScheduler {
 
-    private long executionTime, avgExec;
+    private long executionTime;
     private Queue<Task> queue;
     public QueueScheduler(){
         this.executionTime = 0;
@@ -13,23 +13,17 @@ public class QueueScheduler {
         queue.enqueue(task);
     }
 
-    public void executeTasks(String[][] tasks) {
+    public void executeTasks() {
         long  temp = 0, startTime, endTime;
-        int index = 0;
         while (!queue.isEmpty()) {
             startTime = System.nanoTime();
             Task task = queue.dequeue();
             if (task != null) {
                 task.execute();
-                tasks[index][0] = task.getName();
-                tasks[index][1] = task.getOutput();
-                tasks[index][2] = String.valueOf(task.getQueueReponseTime());
             }
             endTime = System.nanoTime();
-            temp = (endTime - startTime);
-            tasks[index][3] = String.valueOf(temp);
+            temp = (endTime - startTime) / 1000000;
             setExecutionTime(getExecutionTime() + temp);
-            index++;
         }
     }
 
@@ -39,9 +33,5 @@ public class QueueScheduler {
 
     public void setExecutionTime(long executionTime) {
         this.executionTime = executionTime;
-    }
-
-    public double getAvgExec() {
-        return (getExecutionTime()/22);
     }
 }
