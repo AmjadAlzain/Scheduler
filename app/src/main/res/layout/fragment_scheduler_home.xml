@@ -5,20 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragmentSchedulerHome">
-    <TextView
-        android:id="@+id/banner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="32dp"
-        android:layout_marginLeft="15dp"
-        android:text="Scheduling Preformnce Calculator"
-        android:textColor="@color/black"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
 
     <TableLayout
@@ -193,6 +179,20 @@
             android:text="Execute (SJF) "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="24dp"
+            android:text="Scheduling Preformnce Calculator"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
