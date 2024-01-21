@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,7 @@ public class fragmentSchedulerHome extends Fragment {
         Button executeBTN = view.findViewById(R.id.executeBTN);
         Button parseBTN = view.findViewById(R.id.parseBTN);
         Button executeSJFBTN = view.findViewById(R.id.executeSJFBTN);
+        Button viewTasksBTN = view.findViewById(R.id.viewTASK);
 
         SchedulerApp schedulerApp = new SchedulerApp();
 
@@ -100,8 +102,40 @@ public class fragmentSchedulerHome extends Fragment {
         executeSJFBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                schedulerApp.resetApp();
+                schedulerApp.readInput(getActivity());
+                schedulerApp.sfjSort();
+                schedulerApp.loadSchedulers();
+                responseTimeS = schedulerApp.getStackResTime();
+                RT_S.setText(String.valueOf(responseTimeS));
+                responseTimeQ= schedulerApp.getQueueResTime();
+                RT_Q.setText(String.valueOf(responseTimeQ));
+                responseTimeLL = schedulerApp.getLinkedListResTime();
+                RT_LL.setText(String.valueOf(responseTimeLL));
+                responseTimeQLL = schedulerApp.getQueueLLResTime();
+                RT_QLL.setText(String.valueOf(responseTimeQLL));
+                executionTimeS = schedulerApp.executeStack();
+                ET_S.setText(String.valueOf(executionTimeS));
+                executionTimeQ = schedulerApp.executeQueue();
+                ET_Q.setText(String.valueOf(executionTimeQ));
+                executionTimeLL = schedulerApp.executeLinkedList();
+                ET_LL.setText(String.valueOf(executionTimeLL));
+                executionTimeQLL = schedulerApp.executeQueueLL();
+                ET_QLL.setText(String.valueOf(executionTimeQLL));
 
+                // Turnaround time
+                TT_S.setText(String.valueOf(responseTimeS+executionTimeS));
+                TT_Q.setText(String.valueOf(responseTimeQ+executionTimeQ));
+                TT_LL.setText(String.valueOf(responseTimeLL+executionTimeLL));
+                TT_QLL.setText(String.valueOf(responseTimeQLL+executionTimeQLL));
+            }
+        });
 
+        viewTasksBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                generateArrays(schedulerApp);
+                Navigation.findNavController(view).navigate(R.id.Dest_ViewTasks);
             }
         });
 
@@ -129,5 +163,24 @@ public class fragmentSchedulerHome extends Fragment {
 //            }
 //        });
 
+    }
+
+    private void generateArrays(SchedulerApp schedulerApp) {
+        fragment_viewTasks.execTimeS = schedulerApp.executeStack();
+        fragment_viewTasks.execTimeQ = schedulerApp.executeQueue();
+        fragment_viewTasks.execTimeLL = schedulerApp.executeLinkedList();
+        fragment_viewTasks.execTimeQLL = schedulerApp.executeQueueLL();
+        fragment_viewTasks.stackTasks = schedulerApp.getStackTasks();
+        fragment_viewTasks.queueTasks = schedulerApp.getQueueTasks();
+        fragment_viewTasks.queueLLTasks = schedulerApp.getQueueLLTasks();
+        fragment_viewTasks.linkedListTasks = schedulerApp.getLinkedListTasks();
+        fragment_viewTasks.responseTimeS = schedulerApp.getStackResTime();
+        fragment_viewTasks.responseTimeQ = schedulerApp.getQueueResTime();
+        fragment_viewTasks.responseTimeLL = schedulerApp.getLinkedListResTime();
+        fragment_viewTasks.responseTimeQLL = schedulerApp.getQueueLLResTime();
+        fragment_viewTasks.avgExecS = schedulerApp.getAvgExecS();
+        fragment_viewTasks.avgExecQ = schedulerApp.getAvgExecQ();
+        fragment_viewTasks.avgExecLL = schedulerApp.getAvgExecLL();
+        fragment_viewTasks.avgExecQLL = schedulerApp.getAvgExecQLL();
     }
 }

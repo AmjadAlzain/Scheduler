@@ -9,5 +9,18 @@
         android:id="@+id/DestSchedularHome"
         android:name="com.example.scheduler.fragmentSchedulerHome"
         android:label="fragment_scheduler_home"
-        tools:layout="@layout/fragment_scheduler_home" />
+        tools:layout="@layout/fragment_scheduler_home" >
+        <action
+            android:id="@+id/action_DestSchedularHome_to_fragment_viewTasks"
+            app:destination="@id/Dest_ViewTasks" />
+    </fragment>
+    <fragment
+        android:id="@+id/Dest_ViewTasks"
+        android:name="com.example.scheduler.fragment_viewTasks"
+        android:label="fragment_view_tasks"
+        tools:layout="@layout/fragment_view_tasks" >
+        <action
+            android:id="@+id/action_fragment_viewTasks_to_DestSchedularHome"
+            app:destination="@id/DestSchedularHome" />
+    </fragment>
 </navigation>

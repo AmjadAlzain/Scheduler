@@ -18,7 +18,7 @@ public class QueueSchedulerLL<E> {
     }
 
 
-    public long executeTasks(String[][] tasks) {
+    public String[][] executeTasks(String[][] tasks) {
         long temp = 0, startTime, endTime;
         int index = 0;
         while (!taskQueueLL.isEmpty()) {
@@ -27,14 +27,13 @@ public class QueueSchedulerLL<E> {
             task.execute();
             tasks[index][0] = task.getName();
             tasks[index][1] = task.getOutput();
-            tasks[index][2] = String.valueOf(task.getQueueReponseTime());
             endTime = System.nanoTime();
             temp = (endTime - startTime);
-            tasks[index][3] = String.valueOf(temp);
+            tasks[index][2] = String.valueOf(temp);
             setExecutionTime(getExecutionTime() + temp);
             index++;
         }
-        return getExecutionTime();
+        return tasks;
     }
 
     public long getExecutionTime() {

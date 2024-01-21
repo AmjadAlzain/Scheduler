@@ -43,10 +43,10 @@ public class SchedulerApp {
         this.linkedListResTime = 0;
         this.queueLLResTime = 0;
         this.tasks = new Task[100];
-        stackTasks = new String[22][6];
-        queueTasks = new String[22][6];
-        linkedListTasks = new String[22][6];
-        queueLLTasks = new String[22][6];
+        stackTasks = new String[22][3];
+        queueTasks = new String[22][3];
+        linkedListTasks = new String[22][3];
+        queueLLTasks = new String[22][3];
     }
 
     public void readInput(Context context) {
@@ -82,22 +82,22 @@ public class SchedulerApp {
     }
 
     public long executeQueue(){
-        queueScheduler.executeTasks(queueTasks);
+        queueTasks = queueScheduler.executeTasks(queueTasks);
         return queueScheduler.getExecutionTime();
     }
 
     public long executeLinkedList(){
-        linkedListScheduler.executeTasks(linkedListTasks);
+        linkedListTasks = linkedListScheduler.executeTasks(linkedListTasks);
         return linkedListScheduler.getExecutionTime();
     }
 
     public long executeStack(){
-        stackScheduler.executeTasks(stackTasks);
+        stackTasks = stackScheduler.executeTasks(stackTasks);
         return stackScheduler.getExecutionTime();
     }
 
     public long executeQueueLL(){
-        queueLLScheduler.executeTasks(queueLLTasks);
+        queueLLTasks = queueLLScheduler.executeTasks(queueLLTasks);
         return queueLLScheduler.getExecutionTime();
     }
 
@@ -120,7 +120,8 @@ public class SchedulerApp {
             throw new RuntimeException(e);
         }
     }
-    public Task[] sfjSort(Task[] tasks){
+    public void sfjSort(){
+        Task[] tasks = this.tasks;
         for (int i = 0; i < tasks.length - 1; i++) {
             for (int j = 0; j < tasks.length - i - 1; j++) {
                 if (tasks[j].getPerformance() > tasks[j + 1].getPerformance()) {
@@ -131,7 +132,7 @@ public class SchedulerApp {
                 }
             }
         }
-        return tasks;
+        this.tasks = tasks;
     }
 
     public long getQueueResTime() {
@@ -164,5 +165,37 @@ public class SchedulerApp {
 
     public void setLinkedListResTime(long linkedListResTime) {
         this.linkedListResTime = linkedListResTime;
+    }
+
+    public String[][] getStackTasks() {
+        return stackTasks;
+    }
+
+    public String[][] getQueueTasks() {
+        return queueTasks;
+    }
+
+    public String[][] getLinkedListTasks() {
+        return linkedListTasks;
+    }
+
+    public String[][] getQueueLLTasks() {
+        return queueLLTasks;
+    }
+
+    public double getAvgExecQ() {
+        return queueScheduler.getAvgExec();
+    }
+
+    public double getAvgExecS() {
+        return stackScheduler.getAvgExec();
+    }
+
+    public double getAvgExecLL() {
+        return linkedListScheduler.getAvgExec();
+    }
+
+    public double getAvgExecQLL() {
+        return queueLLScheduler.getAvgExec();
     }
 }

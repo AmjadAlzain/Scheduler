@@ -13,7 +13,7 @@ public class LinkedListScheduler<E> {
         taskList.addFirst(task);
     }
 
-    public void executeTasks(String[][] tasks) {
+    public String[][] executeTasks(String[][] tasks) {
         long temp = 0, startTime, endTime;
         int index = 0;
         while (taskList.getSize() != 0) {
@@ -23,14 +23,14 @@ public class LinkedListScheduler<E> {
                 task.execute();
                 tasks[index][0] = task.getName();
                 tasks[index][1] = task.getOutput();
-                tasks[index][2] = String.valueOf(task.getLinkedListReponseTime());
             }
             endTime = System.nanoTime();
             temp = (endTime - startTime);
-            tasks[index][3] = String.valueOf(temp);
+            tasks[index][2] = String.valueOf(temp);
             setExecutionTime(getExecutionTime() + temp);
             index++;
         }
+        return tasks;
     }
 
     public long getExecutionTime() {
