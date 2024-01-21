@@ -48,7 +48,11 @@ public class Task {
                 setPerformance(endUgly-start);
                 break;
             // Add other cases if needed
+
         }
+        long end = System.nanoTime();
+        setPerformance(end-start);
+
     }
 
     // Getters and Setters
