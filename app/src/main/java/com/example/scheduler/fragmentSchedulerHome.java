@@ -1,5 +1,6 @@
 package com.example.scheduler;
 
+import android.content.res.AssetManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,9 +13,24 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.scheduler.methods.SchedulerApp;
+import com.example.scheduler.methods.LinkedListScheduler;
+import com.example.scheduler.methods.QueueScheduler;
+import com.example.scheduler.methods.QueueSchedulerLL;
+import com.example.scheduler.methods.StackScheduler;
+import com.example.scheduler.methods.Task;
+
+import java.io.IOException;
+import java.io.InputStream;
+
 
 public class fragmentSchedulerHome extends Fragment {
+
+
+    // Objects to store runtime and execution time to get turnaround time
+
+    private long responseTimeLL, responseTimeQLL, responseTimeS, responseTimeQ;
+    private long executionTimeLL, executionTimeQLL, executionTimeS, executionTimeQ;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,36 +43,86 @@ public class fragmentSchedulerHome extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button stackBTN = view.findViewById(R.id.stackBTN);
-        Button queueBTN = view.findViewById(R.id.queueBTN);
-        Button linkedListBTN = view.findViewById(R.id.linkedListBTN);
-        TextView execTimeTV = view.findViewById(R.id.executionTimeTV);
+        LinkedListScheduler<Task> linkedList = new LinkedListScheduler<>();
+        StackScheduler<Task> stack = new StackScheduler<>();
+        QueueSchedulerLL<Task> queueLL = new QueueSchedulerLL<>();
+        QueueScheduler<Task> queue= new QueueScheduler<>();
 
-        SchedulerApp schedulerApp = new SchedulerApp();
-        schedulerApp.readInput(getActivity());
-        schedulerApp.loadSchedulers();
+        Button executeBTN = view.findViewById(R.id.executeBTN);
+        Button parseBTN = view.findViewById(R.id.parseBTN);
+        Button executeSJFBTN = view.findViewById(R.id.executeSJFBTN);
 
-        stackBTN.setOnClickListener(new View.OnClickListener() {
+        // text views for Response time
+        TextView RT_LL = view.findViewById(R.id.RT_LL);
+        TextView RT_QLL = view.findViewById(R.id.RT_QLL);
+        TextView RT_S = view.findViewById(R.id.RT_S);
+        TextView RT_Q = view.findViewById(R.id.RT_Q);
+
+        // text view for Execution time
+        TextView ET_LL = view.findViewById(R.id.ET_LL);
+        TextView ET_QLL = view.findViewById(R.id.ET_QLL);
+        TextView ET_S = view.findViewById(R.id.ET_S);
+        TextView ET_Q = view.findViewById(R.id.ET_Q);
+
+        // Text Views for Turnaround Time
+        TextView TT_LL = view.findViewById(R.id.TT_LL);
+        TextView TT_QLL = view.findViewById(R.id.TT_QLL);
+        TextView TT_S = view.findViewById(R.id.TT_S);
+        TextView TT_Q = view.findViewById(R.id.TT_Q);
+
+
+
+
+
+
+
+
+        executeBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                long stackexecTime = schedulerApp.executeStack();
-                execTimeTV.setText(String.valueOf(stackexecTime));
+                executionTimeS = stack.executeTasks();
+                ET_S.setText(String.valueOf(executionTimeS));
+                executionTimeQ = queue.executeTasks();
+                ET_Q.setText(String.valueOf(executionTimeQ));
+                executionTimeLL = linkedList.executeTasks();
+                ET_LL.setText(String.valueOf(executionTimeLL));
+                executionTimeQLL = queueLL.executeTasks();
+                ET_QLL.setText(String.valueOf(executionTimeQLL));
+
+                // Turnaround time
+                TT_S.setText(String.valueOf(responseTimeS+executionTimeS));
+                TT_Q.setText(String.valueOf(responseTimeQ+executionTimeQ));
+                TT_LL.setText(String.valueOf(responseTimeLL+executionTimeLL));
+                TT_QLL.setText(String.valueOf(responseTimeQLL+executionTimeQLL));
             }
         });
 
-        queueBTN.setOnClickListener(new View.OnClickListener() {
+        parseBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                long queueexecTime = schedulerApp.executeQueue();
-                execTimeTV.setText(String.valueOf(queueexecTime));
+                try {
+                    AssetManager assetManager = getContext().getAssets();
+                    InputStream inputStream = assetManager.open("tasks.txt");
+                    responseTimeS = stack.parseTasks(inputStream);
+                    RT_S.setText(String.valueOf(responseTimeS));
+                    responseTimeQ= queue.parseTasks(inputStream);
+                    RT_Q.setText(String.valueOf(responseTimeQ));
+                    responseTimeLL = linkedList.parseTasks(inputStream);
+                    RT_LL.setText(String.valueOf(responseTimeLL));
+                    responseTimeQLL = queueLL.parseTasks(inputStream);
+                    RT_QLL.setText(String.valueOf(responseTimeQLL));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
             }
         });
 
-        linkedListBTN.setOnClickListener(new View.OnClickListener() {
+        executeSJFBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                long linkedListExecTime = schedulerApp.executeLinkedList();
-                execTimeTV.setText(String.valueOf(linkedListExecTime));
+
+
             }
         });
 
