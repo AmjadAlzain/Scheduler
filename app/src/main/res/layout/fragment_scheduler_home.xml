@@ -17,124 +17,214 @@
         <!-- Header Row -->
         <TableRow>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="Data Structure" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Data Structure"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:padding="8dp"
+                    android:background="#EEEEEE" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="Response Time" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Response Time"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:padding="8dp"
+                    android:background="#EEEEEE" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="Execution Time" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Execution Time"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:padding="8dp"
+                    android:background="#EEEEEE" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="Turnaround Time" />
-        </TableRow>
-        <TableRow>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Turnaround Time"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:padding="8dp"
+                    android:background="#EEEEEE" />
+            </TableRow>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="LinkedList" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="null"
-                android:id="@+id/RT_LL"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="null"
-                android:id="@+id/ET_LL"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="null"
-                android:id="@+id/TT_LL"/>
-
-        </TableRow>
 
         <TableRow>
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="QueueLL" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="null"
-                android:id="@+id/RT_QLL"/>
+                android:layout_weight="0"
+                android:text="LinkedList"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
 
             <TextView
+                android:id="@+id/RT_LL"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:text="null"
-                android:id="@+id/ET_QLL"/>
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
 
             <TextView
+                android:id="@+id/ET_LL"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:text="null"
-                android:id="@+id/TT_QLL"/>
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/TT_LL"
+                android:layout_width="69dp"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:text="null"
+                android:textColor="#000000"
+                android:textSize="16sp" />
         </TableRow>
+        <!-- Sample Data Rows continued -->
         <TableRow>
-
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="Stack" />
+                android:layout_weight="0"
+                android:text="QueueLL"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
+
             <TextView
+                android:id="@+id/RT_QLL"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:text="null"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/ET_QLL"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:text="null"
-                android:id="@+id/RT_S"/>
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/TT_QLL"
+                android:layout_width="90dp"
                 android:layout_weight="1"
                 android:text="null"
-                android:id="@+id/ET_S"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="null"
-                android:id="@+id/TT_S"/>
-            <!-- Add TextViews for Response Time, Execution Time, and Turnaround Time -->
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
         </TableRow>
+
         <TableRow>
-
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="Queue" />
+                android:layout_weight="0"
+                android:text="Stack"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
+
             <TextView
+                android:id="@+id/RT_S"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:text="null"
-                android:id="@+id/RT_Q"/>
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
 
             <TextView
+                android:id="@+id/ET_S"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:text="null"
-                android:id="@+id/ET_Q"/>
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/TT_S"
+                android:layout_width="1dp"
                 android:layout_weight="1"
                 android:text="null"
-                android:id="@+id/TT_Q"/>
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
         </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_weight="0"
+                android:text="Queue"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/RT_Q"
+                android:layout_width="3dp"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:text="null"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/ET_Q"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:text="null"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/TT_Q"
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:text="null"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="#FFFFFF" />
+        </TableRow>
+
+        <!-- You can add more rows as needed -->
+
 
 
     </TableLayout>
@@ -146,6 +236,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <Button
+            android:id="@+id/viewTASK"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="28dp"
+            android:layout_gravity="center_horizontal"
+            android:text="View Task"
+            app:layout_constraintBottom_toTopOf="@+id/executeSJFBTN"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/parseBTN"
