@@ -14,6 +14,7 @@ public class SchedulerApp {
     QueueSchedulerLL queueLLScheduler;
     long queueResTime, stackResTime, queueLLResTime, linkedListResTime;
     Task[] tasks;
+    Task SortedTasks[];
     String[][] stackTasks, queueTasks, linkedListTasks, queueLLTasks;
 
     public SchedulerApp(){
