@@ -19,7 +19,7 @@ public class fragment_viewTasks extends Fragment {
     private TabLayout tasksTL;
     private ViewPager tasksVP;
     public static String[][] queueTasks, stackTasks, linkedListTasks, queueLLTasks;
-    public static double avgExecQ, avgExecS, avgExecLL, avgExecQLL;
+    public static long avgExecQ, avgExecS, avgExecLL, avgExecQLL;
     public static long execTimeQ, execTimeS, execTimeLL, execTimeQLL;
     public static long responseTimeQ, responseTimeS, responseTimeLL, responseTimeQLL;
     @Override

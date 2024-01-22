@@ -3,6 +3,7 @@ package com.example.scheduler;
 import static com.example.scheduler.fragment_viewTasks.queueTasks;
 import static com.example.scheduler.fragment_viewTasks.stackTasks;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -54,8 +55,9 @@ public class fragment_QueueTasks extends Fragment {
                 TextView textView = new TextView(getActivity());
                 textView.setText(tasks[i][j]);
                 textView.setGravity(Gravity.CENTER);
-                textView.setTextSize(10);
-                textView.setPadding(5, 5, 5, 5);
+                textView.setTextSize(11.7F);
+                textView.setTypeface(null, Typeface.BOLD);
+                textView.setPadding(5, 8, 5, 6);
 
                 // Add TextView to TableRow
                 tableRow.addView(textView);
@@ -67,7 +69,7 @@ public class fragment_QueueTasks extends Fragment {
 
         responseTime.setText(String.valueOf(fragment_viewTasks.responseTimeQ));
         executionTime.setText(String.valueOf(fragment_viewTasks.execTimeQ));
-        avgExecutionTime.setText(Double.toString(fragment_viewTasks.avgExecQ));
+        avgExecutionTime.setText(String.valueOf(fragment_viewTasks.avgExecQ));
     }
 
     private TextView createHeaderTextView(String text) {
@@ -75,10 +77,11 @@ public class fragment_QueueTasks extends Fragment {
         headerTextView.setText(text);
         headerTextView.setGravity(Gravity.CENTER);
         headerTextView.setTextSize(12);
+        headerTextView.setTypeface(null, Typeface.BOLD);
         headerTextView.setPadding(6, 6, 6, 6);
         // Customize additional header styling if needed
         headerTextView.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
-        headerTextView.setTextColor(getResources().getColor(android.R.color.white));
+        headerTextView.setTextColor(getResources().getColor(android.R.color.black));
         return headerTextView;
     }
 }

@@ -26,7 +26,8 @@
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:padding="8dp"
-                    android:background="#EEEEEE" />
+                    android:gravity="center"
+                    android:background="#f7f1a6" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -36,7 +37,8 @@
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:padding="8dp"
-                    android:background="#EEEEEE" />
+                    android:gravity="center"
+                    android:background="#f7f1a6" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -46,7 +48,8 @@
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:padding="8dp"
-                    android:background="#EEEEEE" />
+                    android:gravity="center"
+                    android:background="#f7f1a6" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -56,7 +59,8 @@
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:padding="8dp"
-                    android:background="#EEEEEE" />
+                    android:gravity="center"
+                    android:background="#f7f1a6" />
             </TableRow>
 
 

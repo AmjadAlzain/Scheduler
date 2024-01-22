@@ -9,18 +9,18 @@
         android:id="@+id/linkedListTitleTV"
         android:layout_width="195dp"
         android:layout_height="45dp"
-        android:layout_marginTop="44dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
         android:autoSizeTextType="uniform"
-        android:text="Stack"
-        android:textAlignment="center"
-        android:layout_centerHorizontal="true"/>
+        android:text="LinkedList"
+        android:textAlignment="center" />
 
     <TableLayout
         android:id="@+id/linkedListTasksTable"
-        android:layout_width="414dp"
-        android:layout_height="433dp"
+        android:layout_width="410dp"
+        android:layout_height="510dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="1dp"
         android:layout_below="@id/linkedListTitleTV"/>
 

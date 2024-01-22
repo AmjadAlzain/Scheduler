@@ -178,9 +178,9 @@ public class fragmentSchedulerHome extends Fragment {
         fragment_viewTasks.responseTimeQ = schedulerApp.getQueueResTime();
         fragment_viewTasks.responseTimeLL = schedulerApp.getLinkedListResTime();
         fragment_viewTasks.responseTimeQLL = schedulerApp.getQueueLLResTime();
-        fragment_viewTasks.avgExecS = schedulerApp.getAvgExecS();
-        fragment_viewTasks.avgExecQ = schedulerApp.getAvgExecQ();
-        fragment_viewTasks.avgExecLL = schedulerApp.getAvgExecLL();
-        fragment_viewTasks.avgExecQLL = schedulerApp.getAvgExecQLL();
+        fragment_viewTasks.avgExecS = (long) schedulerApp.getAvgExecS();
+        fragment_viewTasks.avgExecQ = (long) schedulerApp.getAvgExecQ();
+        fragment_viewTasks.avgExecLL = (long) schedulerApp.getAvgExecLL();
+        fragment_viewTasks.avgExecQLL = (long) schedulerApp.getAvgExecQLL();
     }
 }
