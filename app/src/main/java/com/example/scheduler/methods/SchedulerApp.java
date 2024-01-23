@@ -124,6 +124,8 @@ public class SchedulerApp {
         Task[] tasks = this.tasks;
         for (int i = 0; i < tasks.length - 1; i++) {
             for (int j = 0; j < tasks.length - i - 1; j++) {
+                tasks[j].execute();
+                tasks[j+1].execute();
                 if (tasks[j].getPerformance() > tasks[j + 1].getPerformance()) {
                     // Swap tasks[j+1] and tasks[j]
                     Task temp = tasks[j];
@@ -134,6 +136,8 @@ public class SchedulerApp {
         }
         this.tasks = tasks;
     }
+
+
 
     public long getQueueResTime() {
         return queueResTime;

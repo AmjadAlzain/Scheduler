@@ -64,14 +64,14 @@ public class fragmentSchedulerHome extends Fragment {
         executeBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                executionTimeQLL = schedulerApp.executeQueueLL();
+                ET_QLL.setText(String.valueOf(executionTimeQLL));
                 executionTimeS = schedulerApp.executeStack();
                 ET_S.setText(String.valueOf(executionTimeS));
                 executionTimeQ = schedulerApp.executeQueue();
                 ET_Q.setText(String.valueOf(executionTimeQ));
                 executionTimeLL = schedulerApp.executeLinkedList();
                 ET_LL.setText(String.valueOf(executionTimeLL));
-                executionTimeQLL = schedulerApp.executeQueueLL();
-                ET_QLL.setText(String.valueOf(executionTimeQLL));
 
                 // Turnaround time
                 TT_S.setText(String.valueOf(responseTimeS+executionTimeS));
@@ -87,14 +87,14 @@ public class fragmentSchedulerHome extends Fragment {
                 schedulerApp.resetApp();
                 schedulerApp.readInput(getActivity());
                 schedulerApp.loadSchedulers();
+                responseTimeQLL = schedulerApp.getQueueLLResTime();
+                RT_QLL.setText(String.valueOf(responseTimeQLL));
                 responseTimeS = schedulerApp.getStackResTime();
                 RT_S.setText(String.valueOf(responseTimeS));
                 responseTimeQ= schedulerApp.getQueueResTime();
                 RT_Q.setText(String.valueOf(responseTimeQ));
                 responseTimeLL = schedulerApp.getLinkedListResTime();
                 RT_LL.setText(String.valueOf(responseTimeLL));
-                responseTimeQLL = schedulerApp.getQueueLLResTime();
-                RT_QLL.setText(String.valueOf(responseTimeQLL));
 
             }
         });
@@ -106,22 +106,22 @@ public class fragmentSchedulerHome extends Fragment {
                 schedulerApp.readInput(getActivity());
                 schedulerApp.sfjSort();
                 schedulerApp.loadSchedulers();
+                responseTimeQLL = schedulerApp.getQueueLLResTime();
+                RT_QLL.setText(String.valueOf(responseTimeQLL));
                 responseTimeS = schedulerApp.getStackResTime();
                 RT_S.setText(String.valueOf(responseTimeS));
                 responseTimeQ= schedulerApp.getQueueResTime();
                 RT_Q.setText(String.valueOf(responseTimeQ));
                 responseTimeLL = schedulerApp.getLinkedListResTime();
                 RT_LL.setText(String.valueOf(responseTimeLL));
-                responseTimeQLL = schedulerApp.getQueueLLResTime();
-                RT_QLL.setText(String.valueOf(responseTimeQLL));
+                executionTimeQLL = schedulerApp.executeQueueLL();
+                ET_QLL.setText(String.valueOf(executionTimeQLL));
                 executionTimeS = schedulerApp.executeStack();
                 ET_S.setText(String.valueOf(executionTimeS));
                 executionTimeQ = schedulerApp.executeQueue();
                 ET_Q.setText(String.valueOf(executionTimeQ));
                 executionTimeLL = schedulerApp.executeLinkedList();
                 ET_LL.setText(String.valueOf(executionTimeLL));
-                executionTimeQLL = schedulerApp.executeQueueLL();
-                ET_QLL.setText(String.valueOf(executionTimeQLL));
 
                 // Turnaround time
                 TT_S.setText(String.valueOf(responseTimeS+executionTimeS));
