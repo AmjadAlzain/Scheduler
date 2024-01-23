@@ -7,7 +7,7 @@ public class QueueScheduler {
     private Queue<Task> queue;
     public QueueScheduler(){
         this.executionTime = 0;
-        this.queue = new Queue<>(100);
+        this.queue = new Queue<>(200);
     }
     public void addTask(Task task) {
         queue.enqueue(task);

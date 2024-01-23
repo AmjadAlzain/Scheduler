@@ -22,37 +22,24 @@ public class Task {
         long start = System.nanoTime();
         switch (name) {
             case "fib":
-//                output = "Fibonacci result: " + StarterPack.fib(Integer.parseInt(inputValue));
                 output = String.valueOf(StarterPack.fib(Integer.parseInt(inputValue)));
-//                setMethodPerfName("Fibonacci");
-//                long endFib = System.nanoTime();
-//                setPerformance(endFib-start);
+
                 break;
             case "isPrime":
-//                output = "Is Prime: " + StarterPack.isPrime(Long.parseLong(inputValue));
                 output = String.valueOf(StarterPack.isPrime(Long.parseLong(inputValue)));
-//                long endIsPrime = System.nanoTime();
-//                setPerformance(endIsPrime-start);
+
                 break;
             case "longestPalSubstr":
-//                output = "Longest Palindrome: " + StarterPack.longestPalSubstr(inputValue);
                 output = StarterPack.longestPalSubstr(inputValue);
-//                long endLong = System.nanoTime();
-//                setPerformance(endLong-start);
+
                 break;
             case "sumOfDigitsFrom1ToN":
-//                output = "Sum of Digits: " + StarterPack.sumOfDigitsFrom1ToN(Integer.parseInt(inputValue));
                 output = String.valueOf(StarterPack.sumOfDigitsFrom1ToN(Integer.parseInt(inputValue)));
-//                long endSum = System.nanoTime();
-//                setPerformance(endSum-start);
+
                 break;
             case "getNthUglyNo":
-//                output = "Nth Ugly Number: " + StarterPack.getNthUglyNo(Integer.parseInt(inputValue));
                 output = String.valueOf(StarterPack.getNthUglyNo(Integer.parseInt(inputValue)));
-//                long endUgly = System.nanoTime();
-//                setPerformance(endUgly-start);
                 break;
-            // Add other cases if needed
 
         }
         long end = System.nanoTime();

@@ -5,7 +5,7 @@ public class StackScheduler {
     private Stack<Task> taskStack;
     public StackScheduler(){
         this.executionTime = 0;
-        this.taskStack  = new Stack<>(100);
+        this.taskStack  = new Stack<>(200);
     }
 
     public void addTask(Task task) {
