@@ -19,20 +19,27 @@
             android:text="QueueLL"
             android:textAlignment="center" />
 
-        <TableLayout
-            android:id="@+id/queueLLTasksTable"
-            android:layout_width="410dp"
-            android:layout_height="510dp"
-            android:layout_below="@id/queueLLTitleTV"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="1dp" />
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/queueLLScrollView">
+
+            <TableLayout
+                android:id="@+id/queueLLTasksTable"
+                android:layout_width="410dp"
+                android:layout_height="510dp"
+                android:layout_below="@id/queueLLTitleTV"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="1dp" />
+
+        </ScrollView>
 
         <TextView
             android:id="@+id/title1TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/queueLLTasksTable"
+            android:layout_below="@id/queueLLScrollView"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
@@ -50,7 +57,7 @@
             android:textColor="@color/black"
             android:id="@+id/output1TV"
             android:layout_toRightOf="@id/title1TV"
-            android:layout_below="@id/queueLLTasksTable"/>
+            android:layout_below="@id/queueLLScrollView"/>
 
         <TextView
             android:layout_width="wrap_content"
