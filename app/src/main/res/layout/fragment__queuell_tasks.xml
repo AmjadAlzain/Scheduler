@@ -22,7 +22,8 @@
         <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/queueLLScrollView">
+            android:id="@+id/queueLLScrollView"
+            android:layout_below="@id/queueLLTitleTV">
 
             <TableLayout
                 android:id="@+id/queueLLTasksTable"

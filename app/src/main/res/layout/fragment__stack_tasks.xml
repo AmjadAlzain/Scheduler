@@ -23,7 +23,8 @@
         <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/stacksScrollView">
+            android:id="@+id/stacksScrollView"
+            android:layout_below="@id/stackTitleTV">
 
             <TableLayout
                 android:id="@+id/stackTasksTable"

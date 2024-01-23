@@ -22,7 +22,8 @@
         <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/linkedListScrollView">
+            android:id="@+id/linkedListScrollView"
+            android:layout_below="@id/linkedListTitleTV">
 
             <TableLayout
                 android:id="@+id/linkedListTasksTable"
