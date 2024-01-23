@@ -27,10 +27,10 @@ public class SchedulerApp {
         this.linkedListResTime = 0;
         this.queueLLResTime = 0;
         this.tasks = new Task[100];
-        stackTasks = new String[22][6];
-        queueTasks = new String[22][6];
-        linkedListTasks = new String[22][6];
-        queueLLTasks = new String[22][6];
+        stackTasks = new String[22][3];
+        queueTasks = new String[22][3];
+        linkedListTasks = new String[22][3];
+        queueLLTasks = new String[22][3];
     }
 
     public void resetApp(){

@@ -85,21 +85,37 @@ public class fragmentSchedulerHome extends Fragment {
 
                 // Highlight the TextView with the minimum execution time in green
                 if (minExecutionTime == executionTimeQLL) {
+                    RT_QLL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    RT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    RT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    RT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_QLL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     ET_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                 } else if (minExecutionTime == executionTimeS) {
+                    RT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    RT_S.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    RT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    RT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_S.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     ET_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                 } else if (minExecutionTime == executionTimeQ) {
+                    RT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    RT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    RT_Q.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    RT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_Q.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     ET_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                 } else {
+                    RT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    RT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    RT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    RT_LL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     ET_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
