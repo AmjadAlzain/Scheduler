@@ -74,13 +74,39 @@ public class fragmentSchedulerHome extends Fragment {
                 ET_LL.setText(String.valueOf(executionTimeLL));
 
                 // Turnaround time
-                TT_S.setText(String.valueOf(responseTimeS+executionTimeS));
-                TT_Q.setText(String.valueOf(responseTimeQ+executionTimeQ));
-                TT_LL.setText(String.valueOf(responseTimeLL+executionTimeLL));
-                TT_QLL.setText(String.valueOf(responseTimeQLL+executionTimeQLL));
+                TT_S.setText(String.valueOf(responseTimeS + executionTimeS));
+                TT_Q.setText(String.valueOf(responseTimeQ + executionTimeQ));
+                TT_LL.setText(String.valueOf(responseTimeLL + executionTimeLL));
+                TT_QLL.setText(String.valueOf(responseTimeQLL + executionTimeQLL));
+
+                // Find the minimum execution time
+                long minExecutionTime = Math.min(Math.min(executionTimeQLL, executionTimeS),
+                        Math.min(executionTimeQ, executionTimeLL));
+
+                // Highlight the TextView with the minimum execution time in green
+                if (minExecutionTime == executionTimeQLL) {
+                    ET_QLL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    ET_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    ET_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    ET_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                } else if (minExecutionTime == executionTimeS) {
+                    ET_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    ET_S.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    ET_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    ET_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                } else if (minExecutionTime == executionTimeQ) {
+                    ET_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    ET_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    ET_Q.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    ET_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                } else {
+                    ET_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    ET_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    ET_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    ET_LL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                }
             }
         });
-
         parseBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
