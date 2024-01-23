@@ -120,21 +120,88 @@ public class SchedulerApp {
             throw new RuntimeException(e);
         }
     }
-    public void sfjSort(){
+//    public void sfjSort(){
+//        Task[] tasks = this.tasks;
+//        for (int i = 0; i < tasks.length - 1; i++) {
+//            for (int j = 0; j < tasks.length - i - 1; j++) {
+//                tasks[j].execute();
+//                tasks[j+1].execute();
+//                if (tasks[j].getPerformance() > tasks[j + 1].getPerformance()) {
+//                    // Swap tasks[j+1] and tasks[j]
+//                    Task temp = tasks[j];
+//                    tasks[j] = tasks[j + 1];
+//                    tasks[j + 1] = temp;
+//                }
+//            }
+//        }
+//        this.tasks = tasks;
+//    }
+
+    public void sfjSort() {
         Task[] tasks = this.tasks;
-        for (int i = 0; i < tasks.length - 1; i++) {
-            for (int j = 0; j < tasks.length - i - 1; j++) {
-                tasks[j].execute();
-                tasks[j+1].execute();
-                if (tasks[j].getPerformance() > tasks[j + 1].getPerformance()) {
-                    // Swap tasks[j+1] and tasks[j]
-                    Task temp = tasks[j];
-                    tasks[j] = tasks[j + 1];
-                    tasks[j + 1] = temp;
-                }
-            }
-        }
+        mergeSort(tasks, 0, tasks.length - 1);
         this.tasks = tasks;
+    }
+
+    private void mergeSort(Task[] tasks, int left, int right) {
+        if (left < right) {
+            // Find the middle point
+            int middle = left + (right - left) / 2;
+
+            // Recursively sort both halves
+            mergeSort(tasks, left, middle);
+            mergeSort(tasks, middle + 1, right);
+
+            // Merge the sorted halves
+            merge(tasks, left, middle, right);
+        }
+    }
+
+    private void merge(Task[] tasks, int left, int middle, int right) {
+        // Calculate sizes of two subarrays to be merged
+        int n1 = middle - left + 1;
+        int n2 = right - middle;
+
+        // Create temporary arrays
+        Task[] leftArray = new Task[n1];
+        Task[] rightArray = new Task[n2];
+
+        // Copy data to temporary arrays
+        System.arraycopy(tasks, left, leftArray, 0, n1);
+        System.arraycopy(tasks, middle + 1, rightArray, 0, n2);
+
+        // Merge the temporary arrays
+
+        int i = 0, j = 0;
+        int k = left;
+
+        while (i < n1 && j < n2) {
+            leftArray[i].execute();
+            rightArray[j].execute();
+
+            if (leftArray[i].getPerformance() <= rightArray[j].getPerformance()) {
+                tasks[k] = leftArray[i];
+                i++;
+            } else {
+                tasks[k] = rightArray[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Copy remaining elements of leftArray[], if any
+        while (i < n1) {
+            tasks[k] = leftArray[i];
+            i++;
+            k++;
+        }
+
+        // Copy remaining elements of rightArray[], if any
+        while (j < n2) {
+            tasks[k] = rightArray[j];
+            j++;
+            k++;
+        }
     }
 
 
