@@ -90,29 +90,6 @@ public class fragmentSchedulerHome extends Fragment {
                     TT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     TT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     TT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                } else if (minTurnaroundTime == (responseTimeS + executionTimeS)) {
-                    TT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_S.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-                    TT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                } else if (minTurnaroundTime == (responseTimeQ + executionTimeQ)) {
-                    TT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_Q.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-                    TT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                } else {
-                    TT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_LL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-                }
-
-                // Find the minimum execution time
-                long minExecutionTime = Math.min(Math.min(executionTimeQLL, executionTimeS),
-                        Math.min(executionTimeQ, executionTimeLL));
-
-                // Highlight the TextView with the minimum execution time in green
-                if (minExecutionTime == executionTimeQLL) {
                     RT_QLL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     RT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
@@ -121,7 +98,11 @@ public class fragmentSchedulerHome extends Fragment {
                     ET_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                } else if (minExecutionTime == executionTimeS) {
+                } else if (minTurnaroundTime == (responseTimeS + executionTimeS)) {
+                    TT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_S.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    TT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_S.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     RT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
@@ -130,7 +111,11 @@ public class fragmentSchedulerHome extends Fragment {
                     ET_S.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     ET_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                } else if (minExecutionTime == executionTimeQ) {
+                } else if (minTurnaroundTime == (responseTimeQ + executionTimeQ)) {
+                    TT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_Q.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    TT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_Q.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
@@ -140,6 +125,10 @@ public class fragmentSchedulerHome extends Fragment {
                     ET_Q.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     ET_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                 } else {
+                    TT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_LL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     RT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
@@ -149,6 +138,21 @@ public class fragmentSchedulerHome extends Fragment {
                     ET_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_LL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                 }
+
+                // Find the minimum execution time
+//                long minExecutionTime = Math.min(Math.min(executionTimeQLL, executionTimeS),
+//                        Math.min(executionTimeQ, executionTimeLL));
+
+                // Highlight the TextView with the minimum execution time in green
+//                if (minExecutionTime == executionTimeQLL) {
+//
+//                } else if (minExecutionTime == executionTimeS) {
+//
+//                } else if (minExecutionTime == executionTimeQ) {
+//
+//                } else {
+//
+//                }
             }
         });
         parseBTN.setOnClickListener(new View.OnClickListener() {
@@ -210,29 +214,6 @@ public class fragmentSchedulerHome extends Fragment {
                     TT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     TT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     TT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                } else if (minTurnaroundTime == (responseTimeS + executionTimeS)) {
-                    TT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_S.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-                    TT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                } else if (minTurnaroundTime == (responseTimeQ + executionTimeQ)) {
-                    TT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_Q.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-                    TT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                } else {
-                    TT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                    TT_LL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-                }
-
-                // Find the minimum execution time
-                long minExecutionTime = Math.min(Math.min(executionTimeQLL, executionTimeS),
-                        Math.min(executionTimeQ, executionTimeLL));
-
-                // Highlight the TextView with the minimum execution time in green
-                if (minExecutionTime == executionTimeQLL) {
                     RT_QLL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     RT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
@@ -241,7 +222,11 @@ public class fragmentSchedulerHome extends Fragment {
                     ET_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                } else if (minExecutionTime == executionTimeS) {
+                } else if (minTurnaroundTime == (responseTimeS + executionTimeS)) {
+                    TT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_S.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    TT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_S.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     RT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
@@ -250,7 +235,11 @@ public class fragmentSchedulerHome extends Fragment {
                     ET_S.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     ET_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
-                } else if (minExecutionTime == executionTimeQ) {
+                } else if (minTurnaroundTime == (responseTimeQ + executionTimeQ)) {
+                    TT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_Q.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    TT_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_Q.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
@@ -260,6 +249,10 @@ public class fragmentSchedulerHome extends Fragment {
                     ET_Q.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     ET_LL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                 } else {
+                    TT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
+                    TT_LL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                     RT_QLL.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_S.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     RT_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
@@ -269,6 +262,21 @@ public class fragmentSchedulerHome extends Fragment {
                     ET_Q.setTextColor(getResources().getColor(android.R.color.tab_indicator_text));
                     ET_LL.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                 }
+
+                // Find the minimum execution time
+//                long minExecutionTime = Math.min(Math.min(executionTimeQLL, executionTimeS),
+//                        Math.min(executionTimeQ, executionTimeLL));
+
+                // Highlight the TextView with the minimum execution time in green
+//                if (minExecutionTime == executionTimeQLL) {
+//
+//                } else if (minExecutionTime == executionTimeS) {
+//
+//                } else if (minExecutionTime == executionTimeQ) {
+//
+//                } else {
+//
+//                }
             }
         });
 
