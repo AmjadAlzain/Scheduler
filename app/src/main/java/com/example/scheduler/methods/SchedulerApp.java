@@ -26,11 +26,11 @@ public class SchedulerApp {
         this.stackResTime = 0;
         this.linkedListResTime = 0;
         this.queueLLResTime = 0;
-        this.tasks = new Task[176];
-        stackTasks = new String[176][3];
-        queueTasks = new String[176][3];
-        linkedListTasks = new String[176][3];
-        queueLLTasks = new String[176][3];
+        this.tasks = new Task[88];
+        stackTasks = new String[tasks.length][3];
+        queueTasks = new String[tasks.length][3];
+        linkedListTasks = new String[tasks.length][3];
+        queueLLTasks = new String[tasks.length][3];
     }
 
     public void resetApp(){
@@ -42,11 +42,11 @@ public class SchedulerApp {
         this.stackResTime = 0;
         this.linkedListResTime = 0;
         this.queueLLResTime = 0;
-        this.tasks = new Task[176];
-        stackTasks = new String[176][3];
-        queueTasks = new String[176][3];
-        linkedListTasks = new String[176][3];
-        queueLLTasks = new String[176][3];
+        this.tasks = new Task[88];
+        stackTasks = new String[tasks.length][3];
+        queueTasks = new String[tasks.length][3];
+        linkedListTasks = new String[tasks.length][3];
+        queueLLTasks = new String[tasks.length][3];
     }
 
     public void readInput(Context context) {
@@ -102,7 +102,7 @@ public class SchedulerApp {
     }
 
     public Task[] parseTasks(Context context, String filename) {
-        Task[] tasks = new Task[176];
+        Task[] tasks = new Task[88];
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(context.getAssets().open(filename)))) {
             String line;
             int index = 0;
